@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "Welcome to Baghi",
+    "subtitle": "Your all-in-one platform to find and offer quality services.",
+    "get_started": "Get Started",
+    "how_it_works": "How It Works",
+    "become_tasker": "Become a Tasker",
+    "plumber": "Plumber",
+    "electrician": "Electrician",
+    "cleaning": "Cleaning",
+    "tutoring": "Tutoring"
+  },
+  "become_tasker": {
+    "title": "Become a Service Provider",
+    "description": "Join our platform as a service provider and start offering your skills to clients worldwide.",
+    "sidebar_title": "Become a Tasker",
+    "sidebar_description": "Join our community of taskers and grow your business.",
+    "submit": "Sign Up as a Tasker",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "email": "Email Address",
+      "email_placeholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phone_placeholder": "Enter your phone number",
+      "skills": "Skills and Services",
+      "skills_placeholder": "Describe your skills and the services you offer"
+    }
+  },
+    "header": {
+        "sign_in": "Sign In",
+        "title":"Baghi"
+    },
+  "sign_in": {
+    "title": "Sign In to Your Account",
+    "description": "Welcome to Our Platform Connect with clients and providers. Find the services you need or offer your expertise to the world.",
+    "email": "Email Address",
+    "email_placeholder": "Enter your email address",
+    "password": "Password",
+    "password_placeholder": "Enter your password",
+    "sign_in_button": "Sign In",
+    "gestion_account": "Or manage your account",
+    "forgot_password": "Forgot Password?"
+  },
+  "search": {
+    "placeholder": "Search for services, providers...",
+    "button": "Search",
+    "city": "City",
+    "zone": "Zone",
+    "service": "Service",
+    "list": "List",
+    "map": "Map"
+  },
+  "forgot_password_page": {
+    "title": "Password Recovery",
+    "description": "Enter your email address to recover your password.",
+    "email": "Email Address",
+    "email_placeholder": "Enter your email address",
+    "submit_button": "Send Recovery Instructions",
+    "back_to_sign_in": "Back to Sign In",
+    "loading": "Sending..."
+  }
+}

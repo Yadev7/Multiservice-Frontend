@@ -59,5 +59,18 @@
     "submit_button": "Send Recovery Instructions",
     "back_to_sign_in": "Back to Sign In",
     "loading": "Sending..."
+  },
+  "details_ads": {
+    "loading": "Loading provider details...",
+    "profile_not_found": "Profile not found.",
+    "voice_intro": "Voice Introduction",
+    "name": "Name",
+    "email": "Email Address",
+    "phone": " Call Now",
+    "skills": "Skills and Services",
+    "location": "Location",
+    "back_to_search": "Back to Search",
+    "rating": "Rating"
+    
   }
 }

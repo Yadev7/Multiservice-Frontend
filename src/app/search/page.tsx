@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { List, MapPin, Star, LayoutGrid, HandPlatter, ChevronDown, Search } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), { 
   ssr: false,
@@ -79,13 +80,13 @@ const CompactSelect = ({ label, icon, options, value, onChange, placeholder, dis
 export default function SearchResultsPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const [view, setView] = useState<'list' | 'map'>('list');
 
   // --- Search State ---
-  const [location, setLocation] = useState();
-  const [zone, setZone] = useState();
-  const [service, setService] = useState();
+  const [location, setLocation] = useState<string>("");
+  const [zone, setZone] = useState<string>("");
+  const [service, setService] = useState<string>("");
 
   // --- Data States ---
   const [cities, setCities] = useState<{ [key: string]: [number, number] }>({});
@@ -130,7 +131,7 @@ export default function SearchResultsPage() {
       alert(t("please_select_city_and_service"));
       return;
     }
-    const params = new URLSearchParams({ city: location, service, ...(zone && { zone }) });
+    const params = new URLSearchParams({ city: location, service, ...(zone ? { zone } : {}) });
     router.push(`/search?${params.toString()}`);
   };
 
@@ -143,14 +144,14 @@ export default function SearchResultsPage() {
 
     
 
-  const labelToShow = zone || t('location') || "Results";
+  const labelToShow = zone || location || "my location";
 
   return (
-    <div className="relative min-h-screen w-full bg-gray-50/50">
+    <div className="fixed min-h-screen w-full bg-gray-50/50">
       
 
 {/* --- SINGLE-LINE RESPONSIVE SEARCH BAR --- */}
- <div className="sticky top-13 left-0 right-0 z-[50] px-2 py-4 md:px-6 md:py-4">
+ <div className="absolute top-0 left-0 right-0 z-[30] px-2 py-4 md:px-6 md:py-4">
   <div className="container mx-auto max-w-6xl">
     <div className="bg-white/90 backdrop-blur-xl border border-white/60 shadow-xl rounded-full p-1 flex flex-row items-center">
        
@@ -218,7 +219,7 @@ export default function SearchResultsPage() {
           <div className="container mx-auto px-4 pt-32 md:pt-40 pb-32 max-w-6xl animate-in fade-in slide-in-from-bottom-2 duration-500">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {serviceProviders.map((provider) => (
-                <div key={provider.id} className="group bg-white rounded-[32px] shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                <Link key={provider.id} href={`/providers/${provider.id}`} className="group bg-white rounded-[32px] shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
                   <div className="relative h-48 w-full shrink-0">
                     <Image 
                       src={provider.imageUrl} 
@@ -235,13 +236,13 @@ export default function SearchResultsPage() {
                       <span className="flex items-center gap-1.5"><Star size={14} className="fill-indigo-600 text-indigo-600"/> {provider.rating}</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
         ) : (
           /* MAP VIEW: Fixes the 'zoomed' or distorted look */
-          <div className="fixed inset-0 w-screen h-screen z-0 overflow-hidden">
+          <div className=" inset-0 w-screen h-screen z-1 overflow-hidden">
             <div className="w-full h-full relative">
                <MapComponent 
                  center={mapCenter} 

@@ -14,7 +14,7 @@ import '../i18n/index'
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
+      <body className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 z-index-0">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

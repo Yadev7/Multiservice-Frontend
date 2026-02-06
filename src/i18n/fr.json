@@ -10,6 +10,7 @@
     "cleaning": "Nettoyage",
     "tutoring": "Tutorat"
   },
+
   "become_tasker": {
     "title": "Devenir prestataire de services",
     "description": "Rejoignez notre plateforme en tant que prestataire de services et commencez à offrir vos compétences aux clients du monde entier.",
@@ -27,10 +28,12 @@
       "skills_placeholder": "Décrivez vos compétences et les services que vous offrez"
     }
   },
+
   "header": {
     "sign_in": "Se connecter",
     "title":"Baghi"
   },
+
   "sign_in": {
     "title": "Se connecter a votre compte",
     "description": "Bienvenue sur notre plateforme. Connectez-vous avec des clients et des prestataires. Trouvez les services dont vous avez besoin ou offrez votre expertise au monde.",
@@ -42,6 +45,7 @@
     "gestion_account": "Ou gérez votre compte",
     "forgot_password": "Mot de passe oublié ?"
   },
+
   "search": {
     "placeholder": "Rechercher des services, des prestataires...",
     "button": "Rechercher",
@@ -51,6 +55,7 @@
     "list": "Liste",
     "map": "Carte"
   },
+
   "forgot_password_page": {
     "title": "Récupération de mot de passe",
     "description": "Entrez votre adresse e-mail pour récupérer votre mot de passe.",
@@ -59,5 +64,18 @@
     "submit_button": "Envoyer les instructions de récupération",
     "back_to_sign_in": "Retour à la connexion",
     "loading": "Envoi en cours..."
+  },
+  
+  "details_ads": {
+    "loading": "Chargement des détails du prestataire...",
+    "profile_not_found": "Profil non trouvé.",
+    "voice_intro": "Introduction vocale",
+    "name": "Nom",
+    "email": "Adresse e-mail",
+    "phone": "Appeler maintenant",
+    "skills": "Compétences et services",
+    "location": "Emplacement",
+    "back_to_search": "Retour à la recherche",
+    "rating": "Évaluation"
   }
 }

@@ -5,28 +5,29 @@ import { Menu, X } from "lucide-react";
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const profileDropdownRef = useRef(null);
+  const profileDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => { if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) { setIsProfileOpen(false); } };
-    if (isProfileOpen) { document.addEventListener('mousedown', handleClickOutside); }
+    const handleClickOutside = (event: MouseEvent) => { 
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target as Node)) { 
+        // Logic for profile dropdown (if implemented)
+      } 
+    };
+    document.addEventListener('mousedown', handleClickOutside);
     return () => { document.removeEventListener('mousedown', handleClickOutside); };
-  }, [isProfileOpen]);
+  }, []);
 
-  const closeAllMenus = () => { setIsMobileMenuOpen(false); setIsProfileOpen(false) };
+  const closeAllMenus = () => { setIsMobileMenuOpen(false); };
 
   return (
-    // Change this line in your Header component:
-    <header className=" bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg shadow-sm border-b border-gray-200/50 dark:border-gray-800/50 z-50 transition-all duration-300">
+    /* ✅ FIX 1: Added 'sticky top-0' to keep it at the top */
+    <header className="overflow-hidden sticky top-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg shadow-sm border-b border-gray-200/50 dark:border-gray-800/50 z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            {/* ✅ FIX: Replaced <a> with <Link> for client-side navigation */}
             <Link href="/" onClick={closeAllMenus} className="flex items-center group">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-white font-bold text-lg">S</span>
@@ -68,12 +69,4 @@ const Header = () => {
   );
 };
 
-
-
-export default function App() {
-  return (
-    <div className="bg-gray-100 dark:bg-gray-900 font-sans">
-      <Header />
-    </div>
-  );
-}
+export default Header;

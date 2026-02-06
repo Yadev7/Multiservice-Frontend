@@ -29,7 +29,7 @@ export default function SignInPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
   // This effect is kept from the original code for client-side hydration.
   useEffect(() => {
@@ -73,24 +73,14 @@ export default function SignInPage() {
       } else {
         window.location.href = "/admin";
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Login failed:", err);
-      setError(err.message);
+      setError((err as Error).message);
     } finally {
       setLoading(false);
     }
   };
 
-  // --- Placeholder Handlers for Social Logins ---
-  const handleGoogleLogin = () => {
-    console.log("Google login button clicked");
-    // Example: window.location.href = 'YOUR_GOOGLE_AUTH_API_ENDPOINT';
-  };
-
-  const handleGitHubLogin = () => {
-    console.log("GitHub login button clicked");
-    // Example: window.location.href = 'YOUR_GITHUB_AUTH_API_ENDPOINT';
-  };
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -223,19 +213,21 @@ export default function SignInPage() {
         </div>
       </div>
 
+
       {/* Right Column: Welcome Message & Image */}
-      <div
-        className="hidden lg:flex w-1/2 items-center justify-center p-12 relative bg-cover bg-center"
-        style={{ backgroundImage: "url('http://googleusercontent.com/file_content/1')" }}
-      >
-        {/* Overlay */}
-         <img
-          src="/signIn.png"
-          alt="alt"
-          style={{ objectFit: "cover" }}
-          sizes="(max-width: 700px) 100vw, 400px"
-        /> 
-      </div>
+<div className="hidden lg:flex w-1/2 items-center justify-center p-12 relative">
+  {/* We use 'fill' here so the image expands to the parent container. 
+      Ensure the parent has 'relative' and defined dimensions.
+  */}
+  <Image
+    src="/signIn.png"
+    alt="Sign In Illustration"
+    fill
+    priority // Loads the image faster as it's above the fold
+    className="object-cover"
+    sizes="(max-width: 1024px) 100vw, 50vw"
+  />
+</div>
     </div>
   );
 }

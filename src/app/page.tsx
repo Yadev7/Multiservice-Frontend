@@ -10,7 +10,7 @@ import ServicesSection from '@/components/ServicesSection';
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden">
+    <main className="hide-scrollbar">
       <Hero />  
       <ServicesSection />
       <HowItWorks />

@@ -76,6 +76,8 @@
     "skills": "Compétences et services",
     "location": "Emplacement",
     "back_to_search": "Retour à la recherche",
-    "rating": "Évaluation"
+    "rating": "Évaluation",
+    "message": "Laisser un Message",
+    "whatsapp": "Contacter via WhatsApp"
   }
 }

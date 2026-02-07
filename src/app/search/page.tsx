@@ -57,7 +57,6 @@ const CompactSelect = ({ label, icon, options, value, onChange, placeholder, dis
         <ChevronDown size={12} className={`text-gray-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute z-[100] mt-2 w-56 left-0 bg-white border border-gray-100 rounded-2xl shadow-2xl max-h-60 overflow-y-auto py-2 animate-in fade-in slide-in-from-top-1">
           {options.map((option: string) => (
@@ -83,12 +82,10 @@ export default function SearchResultsPage() {
   const { t } = useTranslation();
   const [view, setView] = useState<'list' | 'map'>('list');
 
-  // --- Search State ---
   const [location, setLocation] = useState<string>("");
   const [zone, setZone] = useState<string>("");
   const [service, setService] = useState<string>("");
 
-  // --- Data States ---
   const [cities, setCities] = useState<{ [key: string]: [number, number] }>({});
   const [services, setServices] = useState<{ [key: string]: unknown }>({});
   const [allZones, setAllZones] = useState<{ [key: string]: { name: string, coords: [number, number] }[] }>({});
@@ -110,14 +107,13 @@ export default function SearchResultsPage() {
     fetchData();
   }, [searchParams]);
 
-  // --- Dynamic Location Logic ---
   const mapCenter = useMemo((): [number, number] => {
     if (zone) {
       const zoneData = filteredZones.find(z => z.name === zone);
       if (zoneData) return zoneData.coords;
     }
     if (location && cities[location]) return cities[location];
-    return [33.5731, -7.5898]; // Default Casablanca
+    return [33.5731, -7.5898];
   }, [location, zone, cities, filteredZones]);
 
   const handleLocationChange = (cityKey: string) => {
@@ -137,86 +133,80 @@ export default function SearchResultsPage() {
 
   const serviceProviders = [
     { id: 1, name: 'Carlos Rodriguez', service: service || 'Professional', rating: 4.8, reviewCount: 124, distance: '2.5 miles', imageUrl: '/PlumbingCarlos.png', isAvailable: true },
-  
     { id: 2, name: 'Linda Nguyen', service: service || 'Expert', rating: 4.6, reviewCount: 98, distance: '3.1 miles', imageUrl: '/HandymanPatricia.png', isAvailable: false },
-  
-    { id: 3, name: 'Ahmed Hassan', service: service || 'Specialist', rating: 4.9, reviewCount: 150, distance: '1.8 miles', imageUrl: '/PlumbingCarlos.png', isAvailable: true },];
-
-    
+    { id: 3, name: 'Ahmed Hassan', service: service || 'Specialist', rating: 4.9, reviewCount: 150, distance: '1.8 miles', imageUrl: '/PlumbingCarlos.png', isAvailable: true },
+    { id: 4, name: 'Sophie Dubois', service: service || 'Professional', rating: 4.7, reviewCount: 110, distance: '2.9 miles', imageUrl: '/HouseCleaningMaria.png', isAvailable: true },
+  ];
 
   const labelToShow = zone || location || "my location";
 
   return (
-    <div className="fixed min-h-screen w-full bg-gray-50/50">
+    /* CHANGED: Removed fixed, added overflow-x-hidden for stability */
+    <div className="relative min-h-screen w-full bg-gray-50/50 overflow-x-hidden">
       
+      {/* --- SEARCH BAR --- */}
+      {/* Changed to sticky so it stays accessible while scrolling the list */}
+      <div className="sticky top-0 left-0 right-0 z-[90] px-2 py-4 md:px-6 md:py-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="bg-white/90 backdrop-blur-xl border border-white/60 shadow-xl rounded-full p-1 flex flex-row items-center">
+            <div className="flex flex-row items-center flex-[1.5]">
+              <CompactSelect 
+                label={t("search.city")}
+                icon={<MapPin size={14} className="md:w-4 md:h-4" />}
+                options={Object.keys(cities).map(c => t(c))}
+                value={location ? t(location) : ""}
+                onChange={(val: string) => {
+                  const key = Object.keys(cities).find(k => t(k) === val) || "";
+                  handleLocationChange(key);
+                }}
+                placeholder={t("search.city")}
+              />
+              <div className="w-px h-6 bg-gray-100 shrink-0" />
+              <CompactSelect 
+                label={t("search.zone")}
+                icon={<LayoutGrid size={14} className="md:w-4 md:h-4" />}
+                options={filteredZones.map(z => z.name)}
+                value={zone}
+                disabled={!location}
+                onChange={(val: string) => setZone(val)}
+                placeholder={t("search.zone")}
+              />
+            </div> 
 
-{/* --- SINGLE-LINE RESPONSIVE SEARCH BAR --- */}
- <div className="absolute top-0 left-0 right-0 z-[30] px-2 py-4 md:px-6 md:py-4">
-  <div className="container mx-auto max-w-6xl">
-    <div className="bg-white/90 backdrop-blur-xl border border-white/60 shadow-xl rounded-full p-1 flex flex-row items-center">
-       
-      {/* 1. Location & Zone Group */}
-       <div className="flex flex-row items-center flex-[1.5] ">
-        <CompactSelect 
-          label={t("search.city")}
-          icon={<MapPin size={14} className="md:w-4 md:h-4" />}
-          options={Object.keys(cities).map(c => t(c))}
-          value={location ? t(location) : ""}
-          onChange={(val: string) => {
-            const key = Object.keys(cities).find(k => t(k) === val) || "";
-            handleLocationChange(key);
-          }}
-          placeholder={t("search.city")}
-        />
-        <div className="w-px h-6 bg-gray-100 shrink-0" />
-        <CompactSelect 
-          label={t("search.zone")}
-          icon={<LayoutGrid size={14} className="md:w-4 md:h-4" />}
-          options={filteredZones.map(z => z.name)}
-          value={zone}
-          disabled={!location}
-          onChange={(val: string) => setZone(val)}
-          placeholder={t("search.zone")}
-        />
+            <div className="w-px h-8 bg-gray-200 mx-1 md:mx-2 shrink-0" />
+
+            <div className="flex flex-row items-center flex-1 min-w-0 gap-1 md:gap-2">
+              <CompactSelect 
+                label={t("search.service")}
+                icon={<HandPlatter size={14} className="md:w-4 md:h-4" />}
+                options={Object.keys(services).map(s => t(s))}
+                value={service ? t(service) : ""}
+                onChange={(val: string) => {
+                  const key = Object.keys(services).find(k => t(k) === val) || "";
+                  setService(key);
+                }}
+                placeholder={t("search.service")}
+              />
+              
+              <button 
+                onClick={handleSearchUpdate}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 md:px-6 md:py-3 rounded-full transition-all flex items-center justify-center gap-2 shrink-0 active:scale-90"
+              >
+                <Search size={16} className="md:w-[18px] md:h-[18px]" />
+                <span className="hidden lg:inline font-bold text-sm uppercase tracking-wide">
+                  {t("search.button")}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div> 
 
-      {/* Center Divider */}
-      <div className="w-px h-8 bg-gray-200 mx-1 md:mx-2 shrink-0" />
-
-      {/* 2. Service & Search Button Group */}
-      <div className="flex flex-row items-center flex-1 min-w-0 gap-1 md:gap-2">
-        <CompactSelect 
-          label={t("search.service")}
-          icon={<HandPlatter size={14} className="md:w-4 md:h-4" />}
-          options={Object.keys(services).map(s => t(s))}
-          value={service ? t(service) : ""}
-          onChange={(val: string) => {
-            const key = Object.keys(services).find(k => t(k) === val) || "";
-            setService(key);
-          }}
-          placeholder={t("search.service")}
-        />
-        
-        <button 
-          onClick={handleSearchUpdate}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 md:px-6 md:py-3 rounded-full transition-all flex items-center justify-center gap-2 shrink-0 active:scale-90"
-        >
-          <Search size={16} className="md:w-[18px] md:h-[18px]" />
-          <span className="hidden lg:inline font-bold text-sm uppercase tracking-wide">
-            {t("search.button")}
-          </span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div> 
-
-{/* 3. MAIN CONTENT */}
-      <main className="relative flex-1 w-full">
+      {/* 3. MAIN CONTENT */}
+      <main className="relative w-full">
         {view === 'list' ? (
-          /* LIST VIEW: Clean grid with enough top padding for the floating search bar */
-          <div className="container mx-auto px-4 pt-32 md:pt-40 pb-32 max-w-6xl animate-in fade-in slide-in-from-bottom-2 duration-500">
+          /* LIST VIEW: Ensure normal flow for scrolling */
+          <div className="container mx-auto px-4 pt-8 pb-32 max-w-6xl animate-in fade-in slide-in-from-bottom-2 duration-500 touch-pan-y">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {serviceProviders.map((provider) => (
                 <Link key={provider.id} href={`/providers/${provider.id}`} className="group bg-white rounded-[32px] shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
@@ -241,49 +231,46 @@ export default function SearchResultsPage() {
             </div>
           </div>
         ) : (
-          /* MAP VIEW: Fixes the 'zoomed' or distorted look */
-          <div className=" inset-0 w-screen h-screen z-1 overflow-hidden">
-            <div className="w-full h-full relative">
-               <MapComponent 
-                 center={mapCenter} 
-                 displayLabel={labelToShow} 
-               />
-            </div>
+          /* MAP VIEW: Only this view uses fixed to cover the screen */
+          <div className="fixed inset-0 w-screen h-screen z-[10] overflow-hidden">
+            <MapComponent 
+              center={mapCenter} 
+              displayLabel={labelToShow} 
+            />
           </div>
         )}
       </main>
 
+      {/* 2. VIEW TOGGLE */}
+      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:right-10 md:translate-x-0 z-[100]">
+        <div className="flex p-1.5 bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full items-center gap-1">
+          <button 
+            onClick={() => setView('list')} 
+            className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+              view === 'list' 
+                ? 'bg-indigo-600 text-white shadow-lg' 
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            <List size={18} />
+            <span className="text-xs font-bold uppercase tracking-wider">{t("search.list")}</span>
+          </button>
+          
+          <div className="w-px h-4 bg-gray-700 mx-1" />
 
-{/* 2. VIEW TOGGLE - Floating at bottom center */}
-<div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[70]">
-  <div className="flex p-1.5 bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full items-center gap-1">
-    <button 
-      onClick={() => setView('list')} 
-      className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-        view === 'list' 
-          ? 'bg-indigo-600 text-white shadow-lg' 
-          : 'text-gray-400 hover:text-white'
-      }`}
-    >
-      <List size={18} />
-      <span className="text-xs font-bold uppercase tracking-wider">{t("search.list")}</span>
-    </button>
-    
-    <div className="w-px h-4 bg-gray-700 mx-1" />
-
-    <button 
-      onClick={() => setView('map')} 
-      className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-        view === 'map' 
-          ? 'bg-indigo-600 text-white shadow-lg' 
-          : 'text-gray-400 hover:text-white'
-      }`}
-    >
-      <MapPin size={18} />
-      <span className="text-xs font-bold uppercase tracking-wider">{t("search.map")}</span>
-    </button>
-  </div>
-</div>
+          <button 
+            onClick={() => setView('map')} 
+            className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+              view === 'map' 
+                ? 'bg-indigo-600 text-white shadow-lg' 
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            <MapPin size={18} />
+            <span className="text-xs font-bold uppercase tracking-wider">{t("search.map")}</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

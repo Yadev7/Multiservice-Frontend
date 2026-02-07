@@ -34,7 +34,7 @@ export default function HeroSection() {
       setServiceIndex((prev) => (prev + 1) % rollingServices.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [rollingServices.length]);
 
   return (
     // ADJUSTMENT: Changed h-[90vh] to min-h-screen for better mobile flow

@@ -3,7 +3,8 @@
 import './globals.css'
 import Header from '../components/Header'
 import type { ReactNode } from 'react'
-import { LanguageProvider } from '@/i18n/LanguageContext'
+
+
 import { ReduxProvider } from '../store/redux-provider' // ✅ import your ReduxProvider
 import { AuthProvider } from '../context/AuthContext';
 import AuthGuard from '../components/AuthGuard';
@@ -13,8 +14,8 @@ import '../i18n/index'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 z-index-0">
+    <html  lang="en" suppressHydrationWarning className="hide-scrollbar">
+      <body className="hide-scrollbar  min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 z-index-0">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

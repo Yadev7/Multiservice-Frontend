@@ -70,7 +70,9 @@
     "skills": "Skills and Services",
     "location": "Location",
     "back_to_search": "Back to Search",
-    "rating": "Rating"
+    "rating": "Rating",
+    "message": "Let a Message",
+    "whatsapp": "Contact via WhatsApp"
     
   }
 }

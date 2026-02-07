@@ -27,10 +27,10 @@
       "skills_placeholder": "Describe your skills and the services you offer"
     }
   },
-    "header": {
-        "sign_in": "Sign In",
-        "title":"Baghi"
-    },
+  "header": {
+    "sign_in": "Sign In",
+    "title": "Baghi"
+  },
   "sign_in": {
     "title": "Sign In to Your Account",
     "description": "Welcome to Our Platform Connect with clients and providers. Find the services you need or offer your expertise to the world.",
@@ -73,6 +73,5 @@
     "rating": "Rating",
     "message": "Let a Message",
     "whatsapp": "Contact via WhatsApp"
-    
   }
 }

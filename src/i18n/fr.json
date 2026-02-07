@@ -31,7 +31,7 @@
 
   "header": {
     "sign_in": "Se connecter",
-    "title":"Baghi"
+    "title": "Baghi"
   },
 
   "sign_in": {
@@ -65,7 +65,7 @@
     "back_to_sign_in": "Retour à la connexion",
     "loading": "Envoi en cours..."
   },
-  
+
   "details_ads": {
     "loading": "Chargement des détails du prestataire...",
     "profile_not_found": "Profil non trouvé.",

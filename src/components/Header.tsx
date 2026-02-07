@@ -11,10 +11,10 @@ const Header = () => {
   const profileDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => { 
-      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target as Node)) { 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target as Node)) {
         // Logic for profile dropdown (if implemented)
-      } 
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => { document.removeEventListener('mousedown', handleClickOutside); };

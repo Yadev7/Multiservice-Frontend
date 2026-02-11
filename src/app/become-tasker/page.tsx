@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { User, Mail, Phone, Wrench, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 export default function BecomeTaskerPage() {
   const [formData, setFormData] = useState({
@@ -26,39 +27,41 @@ export default function BecomeTaskerPage() {
   return (
     // p-4 ensures the card doesn't touch screen edges on mobile
     <div className="bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center md:p-8">
-      
+
       {/* Container: Max-width increases on desktop for a "premium" feel */}
       <div className="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        
-{/* Left Section: Visual Sidebar (Hidden on small mobile, visible on tablet+) */}
-<div className="hidden md:flex md:w-1/3 relative overflow-hidden flex-col justify-between text-white p-10">
-  
-  {/* Background Image */}
-  <img 
-    src="./become_tasker.png" 
-    alt="Service provider working"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-  
-  {/* Gradient Overlay (Darkens the image so text stays readable) */}
-  <div className="absolute inset-0" />
 
-  {/* Content (Z-index ensures it stays above the image/overlay) */}
-  <div className="relative z-10">
-    {/* <Briefcase className="w-12 h-12 mb-6 text-blue-200" /> */}
-    <h2 className="text-2xl font-bold leading-tight">
-      {/* {t('become_tasker_page.sidebar_title', 'Join our community of experts')} */}
-    </h2>
-    <p className="mt-4 text-blue-50 text-sm leading-relaxed font-medium">
-      {/* {t('become_tasker_page.sidebar_description')} */}
-    </p>
-  </div>
+        {/* Left Section: Visual Sidebar (Hidden on small mobile, visible on tablet+) */}
+        <div className="hidden md:flex md:w-1/3 relative overflow-hidden flex-col justify-between text-white p-10">
 
-  <div className="relative z-10 text-xs opacity-70">
-     {/* You can add a logo or extra info here */}
-     Khadamat Platform © 2026
-  </div>
-</div>
+          {/* Background Image */}
+          <Image
+            src="/become_tasker.png"
+            alt="Service provider working"
+            width={400}
+            height={600}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Gradient Overlay (Darkens the image so text stays readable) */}
+          <div className="absolute inset-0" />
+
+          {/* Content (Z-index ensures it stays above the image/overlay) */}
+          <div className="relative z-10">
+            {/* <Briefcase className="w-12 h-12 mb-6 text-blue-200" /> */}
+            <h2 className="text-2xl font-bold leading-tight">
+              {/* {t('become_tasker_page.sidebar_title', 'Join our community of experts')} */}
+            </h2>
+            <p className="mt-4 text-blue-50 text-sm leading-relaxed font-medium">
+              {/* {t('become_tasker_page.sidebar_description')} */}
+            </p>
+          </div>
+
+          <div className="relative z-10 text-xs opacity-70">
+            {/* You can add a logo or extra info here */}
+            Khadamat Platform © 2026
+          </div>
+        </div>
 
         {/* Right Section: The Form */}
         <div className="w-full md:w-2/3 p-6 sm:p-8 md:p-12">

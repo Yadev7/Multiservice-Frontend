@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-// Define the shape of your user profile data
+// 1. Define the shape of your user profile data
 interface UserProfile {
   id: string;
   firstName: string;
@@ -11,24 +11,28 @@ interface UserProfile {
   };
 }
 
-// Define the state structure for this Redux slice
+// 2. Define the state structure
 interface UserState {
   profile: UserProfile | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
+// 3. Initialize ALL fields defined in UserState to avoid TS errors
 const initialState: UserState = {
   profile: null,
-  status: 'idle', // 'idle' means we haven't started fetching yet
+  status: 'idle',
   error: null,
 };
 
-// ⚙️ Async thunk for fetching the user profile
-// This now relies on the browser automatically sending the HttpOnly cookie.
-export const fetchUser = createAsyncThunk('user/fetchUser', async (_, { rejectWithValue }) => {
+// 4. Corrected Async thunk
+export const fetchUser = createAsyncThunk<
+  UserProfile, // Success return type
+  void,        // Input argument type (none)
+  { rejectValue: string } // Type for rejectWithValue
+>('user/fetchUser', async (_, { rejectWithValue }) => {
   try {
-    const response = await fetch('/api/v1/auth/me'); // Relative path for your API route
+    const response = await fetch('/api/v1/auth/me');
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -36,9 +40,13 @@ export const fetchUser = createAsyncThunk('user/fetchUser', async (_, { rejectWi
     }
 
     const userData = await response.json();
-    return userData as UserProfile;
-  } catch (error: any) {
-    return rejectWithValue(error.message || 'A network error occurred');
+    return userData.data as UserProfile; // Adjust based on your API nesting (e.g., userData.data)
+  } catch (error) {
+    // FIX: Avoid 'any'. Check if error is an instance of Error
+    if (error instanceof Error) {
+      return rejectWithValue(error.message);
+    }
+    return rejectWithValue('A network error occurred');
   }
 });
 
@@ -46,19 +54,17 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    // Standard reducer to clear user data on logout
     clearUser: (state) => {
       state.profile = null;
       state.status = 'idle';
       state.error = null;
     },
   },
-  // Handle the different states of the async fetchUser action
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
         state.status = 'loading';
-        state.error = null; // Clear previous errors
+        state.error = null;
       })
       .addCase(fetchUser.fulfilled, (state, action: PayloadAction<UserProfile>) => {
         state.status = 'succeeded';
@@ -66,16 +72,15 @@ const userSlice = createSlice({
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.status = 'failed';
-        state.profile = null; // Ensure profile is cleared on failure
-        state.error = action.payload as string;
+        state.profile = null;
+        // action.payload is now correctly typed as string | undefined
+        state.error = action.payload ?? 'An unknown error occurred';
       });
   },
 });
 
-// Export actions and the reducer
 export const { clearUser } = userSlice.actions;
 export default userSlice.reducer;
 
-// Export selectors for easy access in your components
 export const selectUserProfile = (state: { user: UserState }) => state.user.profile;
 export const selectUserStatus = (state: { user: UserState }) => state.user.status;

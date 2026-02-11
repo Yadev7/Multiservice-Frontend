@@ -1,11 +1,13 @@
 import React from 'react';
 import { Search, MapPin, ChevronDown, Star, Wrench, MessageCircle } from 'lucide-react';
-
+import Image from 'next/image';
 const ServiceCard = ({ image, title, skills, price, isPro = false }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
       <div className="relative">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
+        {/* <img src={image} alt={title} className="w-full h-48 object-cover" /> */}
+        <Image src={image} alt={title} className="w-full h-48 object-cover" width={400} height={300} />
+
         {isPro && (
           <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
             PRO

@@ -2,7 +2,7 @@
 
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
-import React, { createContext, useContext, useState } from "react";
+// import React, { createContext, useContext, useState } from "react";
 
 
 // --- SVG Icons ---
@@ -94,9 +94,9 @@ const SignUpPage = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
     
-    const handleUserTypeChange = (value: string) => {
-        setForm({ ...form, userType: value });
-    };
+    // const handleUserTypeChange = (value: string) => {
+    //     setForm({ ...form, userType: value });
+    // };
     
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -132,9 +132,8 @@ const SignUpPage = () => {
                         ? errorData.message.join(", ")
                         : errorData.message || "An unexpected error occurred.";
                 } catch (jsonError) {
-                    // Fallback if error response is not JSON
+                    console.error("Could not parse error response as JSON:", jsonError);
                 }
-                throw new Error(errorMessage);
             }
             
             setSuccess(true);
@@ -151,8 +150,8 @@ const SignUpPage = () => {
     };
 
 
-    const nextStep = () => setStep(step + 1);
-    const prevStep = () => setStep(step - 1);
+    // const nextStep = () => setStep(step + 1);
+    // const prevStep = () => setStep(step - 1);
 
     return (
         <div className="min-h-screen bg-white text-gray-800 flex font-sans">

@@ -98,9 +98,22 @@ export default function SearchResultsPage() {
           fetch('/api/services').then(res => res.json()),
           fetch('/api/zones').then(res => res.json())
         ]);
-        setCities(c); setServices(s); setAllZones(z);
+        setCities(c); 
+        setServices(s); 
+        setAllZones(z);
+
+        // SYNC URL PARAMS TO STATE
         const initialCity = searchParams.get("city");
-        if (initialCity) setFilteredZones(z[initialCity] || []);
+        const initialService = searchParams.get("service");
+        const initialZone = searchParams.get("zone");
+
+        if (initialCity) {
+          setLocation(initialCity);
+          setFilteredZones(z[initialCity] || []);
+        }
+        if (initialService) setService(initialService);
+        if (initialZone) setZone(initialZone);
+
       } catch (e) { console.error("Error loading data:", e); }
     };
     fetchData();
@@ -140,11 +153,9 @@ export default function SearchResultsPage() {
   const labelToShow = zone || location || "my location";
 
   return (
-    /* CHANGED: Removed fixed, added overflow-x-hidden for stability */
     <div className="relative min-h-screen w-full bg-gray-50/50 overflow-x-hidden">
 
       {/* --- SEARCH BAR --- */}
-      {/* Changed to sticky so it stays accessible while scrolling the list */}
       <div className="fixed top-15 left-0 right-0 z-[90] px-2 py-4 md:px-6 md:py-4">
         <div className="container mx-auto max-w-6xl">
           <div className="bg-white/90 backdrop-blur-xl border border-white/60 shadow-xl rounded-full p-1 flex flex-row items-center">
@@ -201,10 +212,8 @@ export default function SearchResultsPage() {
         </div>
       </div>
 
-      {/* 3. MAIN CONTENT */}
       <main className="sticky w-full pt-15 pb-20">
         {view === 'list' ? (
-          /* LIST VIEW: Ensure normal flow for scrolling */
           <div className="container mx-auto px-4 pt-8 pb-32 max-w-6xl animate-in fade-in slide-in-from-bottom-2 duration-500 touch-pan-y">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {serviceProviders.map((provider) => (
@@ -230,7 +239,6 @@ export default function SearchResultsPage() {
             </div>
           </div>
         ) : (
-          /* MAP VIEW: Only this view uses fixed to cover the screen */
           <div className="fixed inset-0 w-screen h-screen z-[10] overflow-hidden">
             <MapComponent
               center={mapCenter}
@@ -240,7 +248,7 @@ export default function SearchResultsPage() {
         )}
       </main>
 
-      {/* 2. VIEW TOGGLE */}
+      {/* VIEW TOGGLE */}
       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:right-10 md:translate-x-0 z-[100]">
         <div className="flex p-1.5 bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full items-center gap-1">
           <button
@@ -253,9 +261,7 @@ export default function SearchResultsPage() {
             <List size={18} />
             <span className="text-xs font-bold uppercase tracking-wider">{t("search.list")}</span>
           </button>
-
           <div className="w-px h-4 bg-gray-700 mx-1" />
-
           <button
             onClick={() => setView('map')}
             className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${view === 'map'

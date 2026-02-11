@@ -1,17 +1,33 @@
 {
   "hero": {
-    "title": "Bienvenue sur Baghi",
+    "title": "Bienvenue sur Khadamat",
     "subtitle": "Votre plateforme tout-en-un pour trouver et offrir des services de qualité.",
     "get_started": "Commencer",
-    "how_it_works": "Comment ça marche",
     "become_tasker": "Devenir prestataire",
-    "plumber": "Plombier",
-    "electrician": "Électricien",
-    "cleaning": "Nettoyage",
-    "tutoring": "Tutorat"
+    "verified_pro": "Professionnel vérifié",
+    "services": {
+      "title": {
+        "general": "Général",
+        "plumber": "Plombier",
+        "electrician": "Électricien",
+        "cleaning": "Nettoyage",
+        "tutoring": "Tutorat",
+        "handyman": "Bricoleur",
+        "gardening": "Jardinage"
+      },
+      "description": {
+        "general": "Découvrez une large gamme de services généraux qui répondent à tous vos besoins quotidiens.",
+        "plumber": "Obtenez des services de plomberie de la part de plombiers professionnels pour résoudre vos problèmes rapidement et efficacement.",
+        "electrician": "Faites confiance à des électriciens expérimentés pour réparer et entretenir vos systèmes électriques à domicile ou au travail.",
+        "cleaning": "Profitez de services de nettoyage complets pour garder votre maison ou votre bureau impeccable avec une qualité supérieure.",
+        "tutoring": "Recevez des cours particuliers personnalisés dans diverses matières auprès d'enseignants expérimentés.",
+        "handyman": "Comptez sur des bricoleurs qualifiés pour gérer diverses tâches de maintenance et de réparation autour de votre maison.",
+        "gardening": "Profitez de services de jardinage spécialisés pour améliorer la beauté de votre jardin et de votre maison."
+      }
+    }
   },
 
-  "become_tasker": {
+  "become_tasker_page": {
     "title": "Devenir prestataire de services",
     "description": "Rejoignez notre plateforme en tant que prestataire de services et commencez à offrir vos compétences aux clients du monde entier.",
     "sidebar_title": "Devenir prestataire",
@@ -31,7 +47,10 @@
 
   "header": {
     "sign_in": "Se connecter",
-    "title": "Baghi"
+    "title": "Khadamat",
+    "about_us": "À propos de nous",
+    "contact_us": "Contactez-nous",
+    "reports": "Signalements"
   },
 
   "sign_in": {
@@ -78,6 +97,37 @@
     "back_to_search": "Retour à la recherche",
     "rating": "Évaluation",
     "message": "Laisser un Message",
-    "whatsapp": "Contacter via WhatsApp"
+    "whatsapp": "WhatsApp"
+  },
+  "how_it_works": {
+    "process": "Le processus",
+    "title": "Comment ça marche",
+    "description": "Faire vos tâches au Maroc n'a jamais été aussi facile. Suivez ces trois étapes simples pour commencer.",
+    "steps": {
+      "1": {
+        "title": "Trouvez votre expert",
+        "description": "Parcourez les professionnels les mieux notés au Maroc. Filtrez par prix, compétences et avis réels des utilisateurs."
+      },
+      "2": {
+        "title": "Réservez et planifiez",
+        "description": "Choisissez un horaire qui correspond à votre emploi du temps. Réservation instantanée avec des experts locaux disponibles dès aujourd'hui."
+      },
+      "3": {
+        "title": "Gérez tout",
+        "description": "Discutez en toute sécurité, suivez les progrès, payez et laissez un avis - tout cela via notre tableau de bord simplifié."
+      }
+    },
+    "details": "Details"
+  },
+  "services_section": {
+    "title": "Explorez nos catégories de services",
+    "description": "Découvrez une large gamme de services offerts par des professionnels qualifiés à travers le Maroc. Que vous ayez besoin d'aide pour des tâches ménagères, de la réparation, du tutorat ou plus encore, nous avons ce qu'il vous faut.",
+    "categories": {
+      "home_services": "Services à domicile",
+      "tutoring": "Tutorat",
+      "events": "Événements",
+      "wellness": "Bien-être",
+      "technology": "Technologie"
+    }
   }
 }

@@ -1,34 +1,45 @@
+"use client";
+
 import React from 'react';
-import Image from 'next/image'; // Change 1: Using Next.js Image component
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const ServicesSection = () => {
+  const router = useRouter();
+
+  // IDs should match the keys in your /api/services or translation files
   const services = [
     {
+      id: "plumbing",
       title: "Plumbing Services",
       description: "Expert leak repairs, pipe installations, and bathroom maintenance by certified professionals.",
-      image: "/PlumbingCarlos.png", // Change 2: Using your local assets
-      tag: "Popular"
+      image: "/PlumbingCarlos.png"
     },
     {
+      id: "cleaning",
       title: "House Cleaning",
       description: "Professional deep cleaning for homes and offices. Flexible scheduling to fit your life.",
-      image: "/HouseCleaningMaria.png",
-      tag: "Top Rated"
+      image: "/HouseCleaningMaria.png"
     },
     {
+      id: "handyman",
       title: "Handyman & Repair",
       description: "Versatile experts for furniture assembly, mounting, and general home improvements.",
-      image: "/HandymanPatricia.png",
-      tag: "Expert"
+      image: "/HandymanPatricia.png"
     },
     {
+      id: "gardening",
       title: "Garden Maintenance",
       description: "Complete lawn care, landscaping, and outdoor maintenance to keep your garden beautiful.",
-      image: "/GardeningJames.png",
-      tag: "Outdoor"
+      image: "/GardeningJames.png"
     }
   ];
+
+  const handleNavigate = (serviceId: string) => {
+    // Navigates to the search page with the service parameter
+    router.push(`/search?service=${serviceId}`);
+  };
 
   return (
     <section className="relative z-10 py-20 md:py-28 bg-white">
@@ -45,7 +56,10 @@ const ServicesSection = () => {
             </p>
           </div>
           
-          <button className="hidden md:flex items-center gap-3 text-slate-900 font-bold hover:text-blue-600 transition-colors group">
+          <button 
+            onClick={() => router.push('/search')}
+            className="hidden md:flex items-center gap-3 text-slate-900 font-bold hover:text-blue-600 transition-colors group"
+          >
             Browse All <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
           </button>
         </div>
@@ -55,7 +69,8 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)]"
+              onClick={() => handleNavigate(service.id)}
+              className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] cursor-pointer"
             >
               {/* Image Container */}
               <div className="relative h-64 w-full overflow-hidden">
@@ -65,13 +80,6 @@ const ServicesSection = () => {
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                
-                {/* Floating Tag */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-sm">
-                    {service.tag}
-                  </span>
-                </div>
               </div>
 
               {/* Content Section */}
@@ -83,7 +91,6 @@ const ServicesSection = () => {
                   {service.description}
                 </p>
                 
-                {/* Book Now trigger - appears on hover */}
                 <div className="mt-6 flex items-center text-blue-600 font-bold text-sm gap-2 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
                   Book This Expert <ArrowRight size={16} />
                 </div>
@@ -94,7 +101,10 @@ const ServicesSection = () => {
 
         {/* Mobile-only View All Button */}
         <div className="mt-12 md:hidden flex justify-center">
-           <button className="flex items-center gap-2 text-blue-600 font-bold">
+           <button 
+            onClick={() => router.push('/search')}
+            className="flex items-center gap-2 text-blue-600 font-bold"
+           >
             View All Services <ArrowRight size={18} />
           </button>
         </div>

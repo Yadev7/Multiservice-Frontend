@@ -1,16 +1,32 @@
 {
   "hero": {
-    "title": "Welcome to Baghi",
+    "title": "Welcome to Khadamat",
     "subtitle": "Your all-in-one platform to find and offer quality services.",
     "get_started": "Get Started",
-    "how_it_works": "How It Works",
     "become_tasker": "Become a Tasker",
-    "plumber": "Plumber",
-    "electrician": "Electrician",
-    "cleaning": "Cleaning",
-    "tutoring": "Tutoring"
+    "verified_pro": "Verified Pro",
+    "services": {
+      "title": {
+        "general": "General",
+        "plumber": "Plumber",
+        "electrician": "Electrician",
+        "cleaning": "Cleaning",
+        "tutoring": "Tutoring",
+        "handyman": "Handyman",
+        "gardening": "Gardening"
+      },
+      "description": {
+        "general": "Discover a wide range of general services that cater to all your everyday needs.",
+        "plumber": "Get plumbing services from professional plumbers to fix your issues quickly and efficiently.",
+        "electrician": "Rely on experienced electricians to repair and maintain your electrical systems at home or work.",
+        "cleaning": "Enjoy comprehensive cleaning services to keep your home or office spotless with top quality.",
+        "tutoring": "Receive personalized tutoring in various subjects from experienced teachers.",
+        "handyman": "Count on skilled handymen to handle various maintenance and repair tasks around your home.",
+        "gardening": "Enjoy specialized gardening services to enhance the beauty of your garden and home."
+      }
+    }
   },
-  "become_tasker": {
+  "become_tasker_page": {
     "title": "Become a Service Provider",
     "description": "Join our platform as a service provider and start offering your skills to clients worldwide.",
     "sidebar_title": "Become a Tasker",
@@ -29,7 +45,10 @@
   },
   "header": {
     "sign_in": "Sign In",
-    "title": "Baghi"
+    "title": "Khadamat",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "reports": "Reports"
   },
   "sign_in": {
     "title": "Sign In to Your Account",
@@ -72,6 +91,39 @@
     "back_to_search": "Back to Search",
     "rating": "Rating",
     "message": "Let a Message",
-    "whatsapp": "Contact via WhatsApp"
+    "whatsapp": "WhatsApp"
+  },
+  "how_it_works": {
+    "process": "The Process",
+    "title": "How It Works",
+    "description": "Getting your tasks done in Morocco has never been easier. Follow these three simple steps to start.",
+    "steps": {
+      "1": {
+        "title": "Search for services or offer your skills",
+        "description": "Whether you're looking for a plumber, an electrician, or a tutor, our platform connects you with the right professionals. If you have skills to offer, create your profile and start attracting clients."
+      },
+      "2": {
+        "title": "Connect with clients or workers",
+        "description": "Communicate directly with clients or service providers through our secure messaging system. Discuss your needs, negotiate prices, and schedule appointments with ease."
+      },
+      "3": {
+        "title": "Enjoy quality services or grow your business",
+        "description": "Experience top-notch services delivered by trusted professionals. If you're a service provider, build your reputation and grow your business by delivering excellent service to your clients."
+      }
+    },
+    "details": "Details"
+  },
+  "services_section": {
+    "title": "Explore Our Services",
+    "description": "Discover a wide range of services offered by our trusted professionals. Whether you need home repairs, tutoring, or event planning, we have you covered.",
+    "categories": {
+      "home_services": "Home Services",
+      "tutoring": "Tutoring",
+      "event_planning": "Event Planning",
+      "health_wellness": "Health & Wellness",
+      "automotive": "Automotive Services",
+      "technology": "Technology Support",
+      "other": "Other Services"
+    }
   }
 }

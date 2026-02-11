@@ -1,6 +1,6 @@
 'use client';
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 
 import L from 'leaflet';
 import { useEffect, useState, useRef } from 'react';
@@ -33,7 +33,7 @@ interface MapComponentProps {
   displayLabel?: string; // النص الوحيد الذي سيظهر
 }
 
-export default function MapComponent({ center, displayLabel }: MapComponentProps) {
+export default function MapComponent({ center }: MapComponentProps) {
   const defaultPosition: [number, number] = [34.0331, -5.0003]; // Fes
   const [zoomLevel, setZoomLevel] = useState(10);
   const markerRef = useRef<L.Marker | null>(null);
@@ -51,13 +51,13 @@ export default function MapComponent({ center, displayLabel }: MapComponentProps
 
         {center && redIcon && (
           <Marker position={center} icon={redIcon} ref={markerRef}>
-            <Popup autoClose={false} closeOnClick={false}>
+            {/* <Popup autoClose={false} closeOnClick={false}>
                <div className="text-center p-1">
                   <span className="text-indigo-600 font-extrabold text-lg">
                     {displayLabel}
                   </span>
                </div>
-            </Popup>
+            </Popup> */}
           </Marker>
         )}
 

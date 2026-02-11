@@ -1,32 +1,35 @@
 import React from 'react';
 import { Search, CalendarCheck, MessageSquare, ArrowRight } from 'lucide-react';
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
     const router = useRouter();
+    const { t } = useTranslation();
   const steps = [
     {
       number: '01',
-      title: 'Find Your Expert',
-      description: 'Browse through top-rated professionals in Morocco. Filter by price, skills, and real user reviews.',
+      title: t("how_it_works.steps.1.title"),
+      description: t("how_it_works.steps.1.description"),
       icon: <Search className="w-8 h-8 text-blue-600" />,
       color: "bg-blue-100"
     },
     {
       number: '02',
-      title: 'Book & Schedule',
-      description: 'Pick a time that fits your schedule. Instant booking with local experts available as early as today.',
+      title: t("how_it_works.steps.2.title"),
+      description: t("how_it_works.steps.2.description"),
       icon: <CalendarCheck className="w-8 h-8 text-indigo-600" />,
       color: "bg-indigo-100"
     },
     {
       number: '03',
-      title: 'Manage Everything',
-      description: 'Chat securely, track progress, pay, and leave a review—all through our simplified dashboard.',
+      title: t("how_it_works.steps.3.title"),
+      description: t("how_it_works.steps.3.description"),
       icon: <MessageSquare className="w-8 h-8 text-purple-600" />,
       color: "bg-purple-100"
     }
   ];
+
 
   return (
     <section className="py-6 bg-slate-50 overflow-hidden">
@@ -35,13 +38,13 @@ const HowItWorks = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
-            The Process
+            {t("how_it_works.process")}
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-            How it <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Works</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t("how_it_works.title")} </span>
           </h2>
           <p className="text-lg text-slate-600">
-            Getting your tasks done in Morocco has never been easier. Follow these three simple steps to start.
+            {t("how_it_works.description")}
           </p>
         </div>
 
@@ -77,11 +80,6 @@ const HowItWorks = () => {
                     {step.description}
                   </p>
                   
-                  {/* Subtle "Learn More" link for mobile accessibility */}
-                  <div className="mt-6 flex items-center justify-center gap-2 text-blue-600 font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Details</span>
-                    <ArrowRight size={14} />
-                  </div>
                 </div>
               </div>
             ))}

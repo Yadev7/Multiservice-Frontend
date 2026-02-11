@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap");
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+
+.font-arabic {
+  font-family: "Cairo", sans-serif !important;
+}
 
 :root {
   --background: #f9e7e4;
@@ -52,7 +57,7 @@ body {
 }
 
 .user-marker-icon {
-  background-color: #3B82F6; /* Tailwind blue-500 */
+  background-color: #3b82f6; /* Tailwind blue-500 */
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -83,8 +88,8 @@ body {
       display: none;
     }
     /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -109,6 +114,6 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

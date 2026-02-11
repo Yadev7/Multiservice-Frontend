@@ -12,8 +12,8 @@ export default function HomePage() {
   return (
     <main className="hide-scrollbar">
       <Hero />  
-      <ServicesSection />
       <HowItWorks />
+      <ServicesSection />
       <TopExperts />
       <BecomeABoss />
       <Testimonials />

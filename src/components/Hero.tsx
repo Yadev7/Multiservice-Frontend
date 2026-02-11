@@ -28,7 +28,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden bg-gray-950">
+    <div className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden bg-gray-950 px-4 md:px-12 lg:px-20">
 
       {/* Background Slideshow */}
       {slides.map((slide, index) => (
@@ -53,7 +53,7 @@ export default function HeroSection() {
       <div className="relative z-20 container mx-auto px-6 lg:px-12 py-32 grid lg:grid-cols-2 gap-16 items-center">
 
         {/* Left Side: Content */}
-        <div className="text-start space-y-8">
+        <div className="text-start space-y-10">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-sm font-medium animate-fade-in">
             <CheckCircle2 size={14} />

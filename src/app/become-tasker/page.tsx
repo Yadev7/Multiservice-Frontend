@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { User, Mail, Phone, Wrench, Send, Briefcase } from "lucide-react";
+import { User, Mail, Phone, Wrench, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function BecomeTaskerPage() {

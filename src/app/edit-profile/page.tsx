@@ -24,7 +24,7 @@ export default function EditProfilePage() {
   });
   const [photo, setPhoto] = useState<File | null>(null);
   const [currentPhotoUrl, setCurrentPhotoUrl] = useState<string | null>(null);
-  const [userId, setUserId] = useState<string | null>(null); // State to hold user ID
+  // const [userId, setUserId] = useState<string | null>(null); 
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);

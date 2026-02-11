@@ -13,7 +13,7 @@ import type { NextRequest } from 'next/server';
 
 const protectedPath = '/post-task';
 
-const publicPaths = ['/sign-in', '/sign-up']; // Pages the user can visit when NOT logged in
+// const publicPaths = ['/sign-in', '/sign-up']; 
 
 
 

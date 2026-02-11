@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Star, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Image  from "next/image";
 
 const slides = [
   // { image: "/bckgHero.png", key: "general" },
@@ -107,11 +108,18 @@ export default function HeroSection() {
 
             <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-[2rem] overflow-hidden shadow-2xl border border-white/20">
               <div className="h-56 overflow-hidden">
-                <img
+                  <Image
+                    src={slides[currentSlide].image}
+                    alt={t(`hero.services.title.${slides[currentSlide].key}`)}
+                    className="w-full h-full object-cover"
+                    width={380}
+                    height={224}
+                  />
+                {/* <img
                   src={slides[currentSlide].image}
-                  alt="Service"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
+                  alt={t(`hero.services.title.${slides[currentSlide].key}`)}
+                  className="w-full h-full object-cover"
+                /> */}
               </div>
 
               <div className="p-8">

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { MapPin, Clock, Users, Star } from "lucide-react";
-import Link from "next/link";
+import { Star } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 

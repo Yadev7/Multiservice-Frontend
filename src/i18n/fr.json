@@ -66,6 +66,8 @@
   },
 
   "search": {
+    "please_select_city_and_service": "Veuillez sélectionner une ville et un service pour rechercher.",
+    "city_and_service_selected": "Ville sélectionnée : {city} et service : {service}",
     "placeholder": "Rechercher des services, des prestataires...",
     "button": "Rechercher",
     "city": "Ville",
@@ -120,14 +122,21 @@
     "details": "Details"
   },
   "services_section": {
-    "title": "Explorez nos catégories de services",
-    "description": "Découvrez une large gamme de services offerts par des professionnels qualifiés à travers le Maroc. Que vous ayez besoin d'aide pour des tâches ménagères, de la réparation, du tutorat ou plus encore, nous avons ce qu'il vous faut.",
+    "title": "Services Premium",
+    "description": "Qualité exceptionnelle et professionnels vérifiés pour tous vos besoins à travers le Maroc.",
+    "book_expert": "Réservez cet expert",
     "categories": {
       "home_services": "Services à domicile",
       "tutoring": "Tutorat",
-      "events": "Événements",
-      "wellness": "Bien-être",
-      "technology": "Technologie"
+      "event_planning": "Organisation d'événements",
+      "cleaning": "Nettoyage",
+      "handyman": "Bricoleur",
+      "gardening": "Jardinage",
+      "plumbing": "Plomberie",
+      "plumbing_description": "Réparations de fuites expertes, installations de tuyaux et maintenance de salle de bain par des professionnels certifiés.",
+      "cleaning_description": "Nettoyage en profondeur professionnel pour les maisons et les bureaux. Planification flexible pour s'adapter à votre vie.",
+      "handyman_description": "Experts polyvalents pour l'assemblage de meubles, le montage et les améliorations générales de la maison.",
+      "gardening_description": "Entretien complet de la pelouse, aménagement paysager et maintenance extérieure pour garder votre jardin magnifique."
     }
   }
 }

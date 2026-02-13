@@ -134,13 +134,21 @@ export default function SearchResultsPage() {
     setFilteredZones(allZones[cityKey] || []);
   };
 
-  const handleSearchUpdate = () => {
+const handleSearchUpdate = () => {
     if (!location || !service) {
-      alert(t("please_select_city_and_service"));
+      alert(t("search.please_select_city_and_service"));
       return;
+    } else {
+      // Log or notify the user of the selection
+      alert(`Searching for ${t(service)} in ${t(location)}${zone ? ` - ${zone}` : ""}`);
+      
+      const params = new URLSearchParams({ 
+        city: location, 
+        service, 
+        ...(zone ? { zone } : {}) 
+      });
+      router.push(`/search?${params.toString()}`);
     }
-    const params = new URLSearchParams({ city: location, service, ...(zone ? { zone } : {}) });
-    router.push(`/search?${params.toString()}`);
   };
 
   const serviceProviders = [

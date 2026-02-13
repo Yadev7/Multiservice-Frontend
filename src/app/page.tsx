@@ -1,9 +1,9 @@
 'use client';
 import Hero from '../components/Hero'
 import HowItWorks from '../components/HowItWorks'
-import BecomeABoss from '../components/BecomeABoss'
-import TopExperts from '../components/TopExperts'
-import Testimonials from '../components/Testimonials'
+// import BecomeABoss from '../components/BecomeABoss'
+// import TopExperts from '../components/TopExperts'
+// import Testimonials from '../components/Testimonials'
 import Footer from '@/components/Footer';
 import ServicesSection from '@/components/ServicesSection';
 
@@ -14,9 +14,9 @@ export default function HomePage() {
       <Hero />  
       <HowItWorks />
       <ServicesSection />
-      <TopExperts />
-      <BecomeABoss />
-      <Testimonials />
+      {/* <TopExperts /> */}
+      {/* <BecomeABoss /> */}
+      {/* <Testimonials /> */}
       <Footer />
     </main>
   )

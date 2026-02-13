@@ -40,7 +40,7 @@ export default function BecomeTaskerPage() {
 
         {/* Left Section: Visual Sidebar */}
         <div className="hidden md:flex md:w-2/5 relative overflow-hidden flex-col justify-between text-white p-12">
-          
+
           <Image
             src="/become_tasker.png"
             alt="Service provider working"
@@ -51,22 +51,20 @@ export default function BecomeTaskerPage() {
 
           {/* Gradient Overlay for Readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-600/40 via-blue-900/60 to-gray-950/90" />
-
-          <div className="relative z-10">
+          {/* <div className="relative z-10">
             <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-8 border border-white/30">
-                <Wrench className="text-white w-6 h-6" />
+              <Wrench className="text-white w-6 h-6" />
             </div>
             <h2 className="text-3xl font-black leading-tight drop-shadow-md">
-                {t('become_tasker_page.sidebar_title', 'Build Your Professional Future')}
+              {t('become_tasker_page.sidebar_title', 'Build Your Professional Future')}
             </h2>
             <p className="mt-4 text-blue-50/90 text-sm leading-relaxed font-medium max-w-xs">
-                 {t('become_tasker_page.sidebar_description', 'Join the top network of service providers and grow your business today.')}
+              {t('become_tasker_page.sidebar_description', 'Join the top network of service providers and grow your business today.')}
             </p>
-          </div>
-
-          <div className="relative z-10 text-xs font-bold tracking-widest opacity-60 uppercase">
+          </div> */}
+          {/* <div className="relative z-10 text-xs font-bold tracking-widest opacity-60 uppercase">
             Khadamat Platform © 2026
-          </div>
+          </div> */}
         </div>
 
         {/* Right Section: The Form */}

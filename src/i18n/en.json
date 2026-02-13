@@ -62,6 +62,8 @@
     "forgot_password": "Forgot Password?"
   },
   "search": {
+    "please_select_city_and_service": "Please select a city and service to search.",
+    "city_and_service_selected": "Selected city: {city} and service: {service}",
     "placeholder": "Search for services, providers...",
     "button": "Search",
     "city": "City",
@@ -114,16 +116,21 @@
     "details": "Details"
   },
   "services_section": {
-    "title": "Explore Our Services",
-    "description": "Discover a wide range of services offered by our trusted professionals. Whether you need home repairs, tutoring, or event planning, we have you covered.",
+    "title": "Premium Services",
+    "description": "Exceptional quality and verified professionals for your every need across Morocco.",
+    "book_expert": "Book This Expert",
     "categories": {
       "home_services": "Home Services",
       "tutoring": "Tutoring",
       "event_planning": "Event Planning",
-      "health_wellness": "Health & Wellness",
-      "automotive": "Automotive Services",
-      "technology": "Technology Support",
-      "other": "Other Services"
+      "cleaning": "Cleaning",
+      "handyman": "Handyman",
+      "gardening": "Gardening",
+      "plumbing": "Plumbing",
+      "plumbing_description": "Expert leak repairs, pipe installations, and bathroom maintenance by certified professionals.",
+      "cleaning_description": "Professional deep cleaning for homes and offices. Flexible scheduling to fit your life.",
+      "handyman_description": "Versatile experts for furniture assembly, mounting, and general home improvements.",
+      "gardening_description": "Complete lawn care, landscaping, and outdoor maintenance to keep your garden beautiful."
     }
   }
 }

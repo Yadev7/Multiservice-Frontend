@@ -103,8 +103,12 @@ const ForgotPasswordPage: FC = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg p-3 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
                     placeholder={t('forgot_password_page.email_placeholder')}
+                    className="w-full border border-gray-300 rounded-lg p-3 outline-none transition-all duration-300 ease-in-out
+                    focus:border-blue-500 
+                    focus:ring-4 
+                    focus:ring-blue-500/20 
+                    focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                 />
                 </div>
             </div>

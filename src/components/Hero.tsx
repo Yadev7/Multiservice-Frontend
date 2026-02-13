@@ -29,8 +29,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden bg-gray-950 px-4 md:px-12 lg:px-20">
-
+<div className="relative min-h-[85vh] w-full flex items-start justify-center overflow-hidden bg-gray-950 px-4 md:px-12 lg:px-20">
       {/* Background Slideshow */}
       {slides.map((slide, index) => (
         <div
@@ -51,7 +50,7 @@ export default function HeroSection() {
       ))}
 
       {/* Content Container */}
-      <div className="relative z-20 container mx-auto px-6 lg:px-12 py-32 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-20 container mx-auto px-6 lg:px-12 pt-20 pb-32 grid lg:grid-cols-2 gap-16 items-center">
 
         {/* Left Side: Content */}
         <div className="text-start space-y-10">
@@ -115,11 +114,6 @@ export default function HeroSection() {
                     width={380}
                     height={224}
                   />
-                {/* <img
-                  src={slides[currentSlide].image}
-                  alt={t(`hero.services.title.${slides[currentSlide].key}`)}
-                  className="w-full h-full object-cover"
-                /> */}
               </div>
 
               <div className="p-8">

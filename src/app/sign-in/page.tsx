@@ -155,7 +155,11 @@ export default function SignInPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border border-gray-300 rounded-lg p-3 outline-none transition-all duration-300 ease-in-out
+                focus:border-blue-500 
+                focus:ring-4 
+                focus:ring-blue-500/20 
+                focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
               />
             </div>
 
@@ -167,17 +171,21 @@ export default function SignInPage() {
                 {t('sign_in.password')}
               </label>
               <div className="relative">
-                <input
-                  id="password"
-                  name="password"
-                  type={passwordVisible ? "text" : "password"}
-                  autoComplete="current-password"
-                  placeholder={t('sign_in.password_placeholder')}
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                />
+            <input
+              id="password"
+              name="password"
+              type={passwordVisible ? "text" : "password"}
+              autoComplete="current-password"
+              placeholder={t('sign_in.password_placeholder')}
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-3 outline-none transition-all duration-300 ease-in-out
+                focus:border-blue-500 
+                focus:ring-4 
+                focus:ring-blue-500/20 
+                focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+            />
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}

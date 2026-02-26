@@ -78,15 +78,15 @@ const Header = () => {
 
             {/* Desktop Language Switcher (Hidden on Mobile) */}
             <div className="relative group hidden md:flex items-center gap-2 text-gray-600 dark:text-gray-400">
-              <Globe size={16} className="group-hover:text-blue-500 transition-colors" />
-              <select
+
+                            <select
                 value={i18n.language}
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
-                className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer hover:text-blue-500 transition-colors"
+                className="bg-transparent text-sm font-bold text-blue-600 dark:text-blue-400 focus:outline-none"
               >
-                <option value="en" className="dark:bg-gray-900">EN</option>
-                <option value="ar" className="dark:bg-gray-900">AR</option>
-                <option value="fr" className="dark:bg-gray-900">FR</option>
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+                <option value="fr">Français</option>
               </select>
             </div>
 
@@ -167,18 +167,15 @@ const Header = () => {
 
             {/* Mobile Language Switcher (Visible inside menu) */}
             <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-900 rounded-xl mb-2">
-              {/* <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <Globe size={18} />
-                <span className="text-sm font-semibold">{t('header.language') || 'Language'}</span>
-              </div> */}
+              <Globe size={16} className="group-hover:text-blue-500 transition-colors" />
               <select
                 value={i18n.language}
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
-                className="bg-transparent text-sm font-bold text-blue-600 dark:text-blue-400 focus:outline-none"
+                className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer hover:text-blue-500 transition-colors"
               >
-                <option value="en">English</option>
-                <option value="ar">العربية</option>
-                <option value="fr">Français</option>
+                <option value="en" className="dark:bg-gray-900">EN</option>
+                <option value="ar" className="dark:bg-gray-900">AR</option>
+                <option value="fr" className="dark:bg-gray-900">FR</option>
               </select>
             </div>
 

@@ -75,17 +75,18 @@ const Header = () => {
 
           {/* Actions Section */}
           <div className="flex items-center gap-3 lg:gap-6">
-            {/* Language Switcher */}
-            <div className="relative group hidden sm:flex items-center gap-2 text-gray-600 dark:text-gray-400">
+            
+            {/* Desktop Language Switcher (Hidden on Mobile) */}
+            <div className="relative group hidden md:flex items-center gap-2 text-gray-600 dark:text-gray-400">
               <Globe size={16} className="group-hover:text-blue-500 transition-colors" />
               <select 
                 value={i18n.language} 
                 onChange={(e) => i18n.changeLanguage(e.target.value)} 
                 className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer hover:text-blue-500 transition-colors"
               >
-                <option value="en">EN</option>
-                <option value="ar">AR</option>
-                <option value="fr">FR</option>
+                <option value="en" className="dark:bg-gray-900">EN</option>
+                <option value="ar" className="dark:bg-gray-900">AR</option>
+                <option value="fr" className="dark:bg-gray-900">FR</option>
               </select>
             </div>
 
@@ -124,13 +125,13 @@ const Header = () => {
                       <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{user.email}</p>
                     </div>
                     
-                    <DropdownItem href="/profile" icon={<User size={18}/>} label={t('header.profile') || 'My Profile'} />
-                    <DropdownItem href="/settings" icon={<Settings size={18}/>} label={t('header.settings') || 'Settings'} />
+                    <DropdownItem href="/profile" onClick={closeAllMenus} icon={<User size={18}/>} label={t('header.profile') || 'My Profile'} />
+                    <DropdownItem href="/settings" onClick={closeAllMenus} icon={<Settings size={18}/>} label={t('header.settings') || 'Settings'} />
 
                     <div className="mt-2 pt-2 border-t border-gray-50 dark:border-gray-800">
                       <button 
                         onClick={handleLogout}
-                        className="flex items-center gap-3 px-5 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 w-full transition-colors"
+                        className="flex items-center gap-3 px-5 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 w-full transition-colors text-left"
                       >
                         <LogOut size={18} />
                         <span>{t('header.logout') || 'Logout'}</span>
@@ -142,7 +143,7 @@ const Header = () => {
             ) : (
               <Link 
                 href="/sign-in" 
-                className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white transition-all duration-300 bg-blue-600 rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 group active:scale-95"
+                className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white transition-all duration-300 bg-blue-600 rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95"
               >
                 <span className="relative text-sm">{t("header.sign_in")}</span>
               </Link>
@@ -151,7 +152,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-              className="md:hidden p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:text-blue-600"
+              className="md:hidden p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -159,17 +160,47 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-in slide-in-from-top-4 duration-300">
           <nav className="flex flex-col p-4 space-y-2">
-            <Link href="/about" className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium">{t('header.about_us')}</Link>
-            <Link href="/contact" className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium">{t('header.contact_us')}</Link>
+            
+            {/* Mobile Language Switcher (Visible inside menu) */}
+            <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-900 rounded-xl mb-2">
+              <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <Globe size={18} />
+                <span className="text-sm font-semibold">{t('header.language') || 'Language'}</span>
+              </div>
+              <select 
+                value={i18n.language} 
+                onChange={(e) => i18n.changeLanguage(e.target.value)} 
+                className="bg-transparent text-sm font-bold text-blue-600 dark:text-blue-400 focus:outline-none"
+              >
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+                <option value="fr">Français</option>
+              </select>
+            </div>
+
+            <Link href="/about" onClick={closeAllMenus} className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium transition-colors">
+              {t('header.about_us')}
+            </Link>
+            <Link href="/contact" onClick={closeAllMenus} className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium transition-colors">
+              {t('header.contact_us')}
+            </Link>
+
             {user && (
                <>
                 <div className="h-px bg-gray-100 dark:bg-gray-800 my-2" />
-                <Link href="/profile" className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium">{t('header.profile')}</Link>
-                <button onClick={handleLogout} className="px-4 py-3 text-left rounded-xl text-red-500 font-medium">{t('header.logout')}</button>
+                <Link href="/profile" onClick={closeAllMenus} className="px-4 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 font-medium transition-colors">
+                  {t('header.profile')}
+                </Link>
+                <button 
+                  onClick={handleLogout} 
+                  className="px-4 py-3 text-left rounded-xl text-red-500 font-medium hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors"
+                >
+                  {t('header.logout')}
+                </button>
                </>
             )}
           </nav>
@@ -191,9 +222,10 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </Link>
 );
 
-const DropdownItem = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
+const DropdownItem = ({ href, icon, label, onClick }: { href: string; icon: React.ReactNode; label: string; onClick?: () => void }) => (
   <Link 
     href={href} 
+    onClick={onClick}
     className="flex items-center gap-3 px-5 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
   >
     {icon}

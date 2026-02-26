@@ -2,17 +2,22 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   typescript: {
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
     ignoreBuildErrors: true,
   },
   devIndicators: false,
   images: {
+    unoptimized: process.env.NODE_ENV === 'development',
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '3001',
+        port: '3001', // Changed from 3000 to 3001
+        pathname: '/uploads/**', // Changed to match your error path
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
         pathname: '/api/v1/files/**',
       },
       {
@@ -21,7 +26,8 @@ const nextConfig: NextConfig = {
         pathname: '/api/**',
       },
     ],
-    domains: ["ui-avatars.com"],
+    // 'domains' is deprecated in newer Next.js versions; 
+    // remotePatterns is the modern way to do it.
   },
 };
 

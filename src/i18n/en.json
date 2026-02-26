@@ -48,7 +48,10 @@
     "title": "Khadamat",
     "about_us": "About Us",
     "contact_us": "Contact Us",
-    "reports": "Reports"
+    "reports": "Reports",
+    "logout": "Logout",
+    "profile": "Profile"
+
   },
   "sign_in": {
     "title": "Sign In to Your Account",
@@ -131,6 +134,61 @@
       "cleaning_description": "Professional deep cleaning for homes and offices. Flexible scheduling to fit your life.",
       "handyman_description": "Versatile experts for furniture assembly, mounting, and general home improvements.",
       "gardening_description": "Complete lawn care, landscaping, and outdoor maintenance to keep your garden beautiful."
+    }
+  },
+  "members": {
+    "add_member": "Add Professional",
+    "pros": "Professionals"
+  },
+  "contact": {
+    "write_us" : "Write Us",
+    "instruction" : "Your email address will not be published. Required fields are indicated by",
+    "name": "Your Name*",
+    "email": "Email *",
+    "object": "Objet *",
+    "message": "Your Message *",
+    "button": "Send",
+    "placeholder": {
+     "name": "Your Name",
+     "email": "Your Email",
+     "subject": "Subject of your message",
+     "message": "How we can help you ?"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Khadamat",
+      "subtitle": "The trusted gateway connecting local talent to everyday needs in Morocco."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "p1": "At Khadamat, we believe that finding a qualified professional shouldn't be an uphill battle. Whether you need an electrician in Fes, a developer, or a cleaning service, our platform simplifies the connection.",
+      "p2": "We are digitalizing the service sector in Morocco by offering providers a professional showcase to grow their business, and customers a secure and fast solution.",
+      "stats": {
+        "services": "Services",
+        "origin": "Origin",
+        "originValue": "Fes"
+      }
+    },
+    "features": {
+      "title": "Why Choose Khadamat?",
+      "trust": {
+        "title": "Trust & Security",
+        "description": "All our providers are verified to ensure quality and secure service."
+      },
+      "speed": {
+        "title": "Speed",
+        "description": "Book a service in just a few clicks and get an instant response."
+      },
+      "proximity": {
+        "title": "Proximity",
+        "description": "Find the best experts right next to you, anywhere in Morocco."
+      }
+    },
+    "cta": {
+      "title": "Ready to simplify your daily life?",
+      "findBtn": "Find a Service",
+      "becomeBtn": "Become a Provider"
     }
   }
 }

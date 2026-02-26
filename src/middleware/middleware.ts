@@ -1,86 +1,36 @@
-
-
-
-// middleware.ts
-
-import { NextResponse } from 'next/server';
-
-import type { NextRequest } from 'next/server';
-
-
-
-// 1. Specify protected and public paths
-
-const protectedPath = '/post-task';
-
-// const publicPaths = ['/sign-in', '/sign-up']; 
-
-
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // 1. Get the cookie
+  const refreshToken = request.cookies.get("refreshToken")?.value;
+  const accessToken = request.cookies.get("accessToken")?.value;
 
-  const { pathname } = request.nextUrl;
+  // --- DEBUG LOGS (Check your terminal, not the browser) ---
+  console.log(`--- Middleware Check: ${pathname} ---`);
+  console.log(`Refresh Token: ${refreshToken ? "FOUND" : "MISSING"}`);
+  console.log(`Access Token: ${accessToken ? "FOUND" : "MISSING"}`);
 
-  const token = request.cookies.get('token')?.value;
+  const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
+  const isProtectedPage = pathname.startsWith("/members") || pathname.startsWith("/post-task");
 
+  // Logic A: If logged in and trying to access Sign-In -> Send to /members
+  if ((refreshToken || accessToken) && isAuthPage) {
+    console.log("Redirecting to /members because user is logged in.");
+    return NextResponse.redirect(new URL("/members", request.url));
+  }
 
+  // Logic B: If NOT logged in and trying to access Protected Page -> Send to /sign-in
+  if (!refreshToken && !accessToken && isProtectedPage) {
+    console.log("Blocking access. Redirecting to /sign-in.");
+return NextResponse.redirect(new URL('/sign-in', request.url));
+  }
 
-  // If logged in, only allow /post-task
-
-  if (token) {
-
-    if (pathname !== protectedPath && !pathname.startsWith('/api')) {
-
-      return NextResponse.redirect(new URL(protectedPath, request.url));
-
-    }
-
-    // Allow /post-task and API routes
-
-    return NextResponse.next();
-
-  }
-
-
-
-  // If not logged in, block /post-task
-
-  if (!token && pathname === protectedPath) {
-
-    return NextResponse.redirect(new URL('/sign-in', request.url));
-
-  }
-
-
-
-  // Allow public pages
-
-  return NextResponse.next();
-
+  return NextResponse.next();
 }
 
-
-
-// See "Matching Paths" below to learn more
-
 export const config = {
-
-  matcher: [
-
-    /*
-
-     * Match all request paths except for the ones starting with:
-
-     * - _next/static (static files)
-
-     * - _next/image (image optimization files)
-
-     * - favicon.ico (favicon file)
-
-     */
-
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-
-  ],
-
+  matcher: ["/members/:path*", "/post-task/:path*", "/sign-in", "/sign-up"],
 };

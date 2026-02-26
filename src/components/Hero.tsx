@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Star, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Image  from "next/image";
 
@@ -29,7 +29,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-<div className="relative min-h-[85vh] w-full flex items-start justify-center overflow-hidden bg-gray-950 px-4 md:px-12 lg:px-20">
+<div className="relative min-h-[85vh] w-full flex items-start justify-center overflow-hidden  px-4 md:px-12 lg:px-20">
       {/* Background Slideshow */}
       {slides.map((slide, index) => (
         <div
@@ -117,10 +117,10 @@ export default function HeroSection() {
               </div>
 
               <div className="p-8">
-                <div className="flex items-center gap-1.5 text-amber-500 mb-3">
+                {/* <div className="flex items-center gap-1.5 text-amber-500 mb-3">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
                   <span className="text-gray-500 dark:text-gray-400 text-sm font-semibold ms-2">4.9</span>
-                </div>
+                </div> */}
 
                 <h3 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-3">
                   {t(`hero.services.title.${slides[currentSlide].key}`)}

@@ -1,41 +1,53 @@
-// src/context/AuthContext.tsx
 "use client";
 
 import { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 
 interface AuthContextType {
-  token: string | null;
+  user: any | null;
   isLoading: boolean;
-  login: (token: string) => void;
+  setUser: (user: any) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<string | null>(null);
+  const [user, setUser] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      setToken(storedToken);
-    }
-    setIsLoading(false);
-  }, []);
+  const checkAuth = async () => {
+    try {
+      const res = await fetch("http://localhost:3001/me", { 
+        credentials: "include" // Sends the cookie automatically
+      });
 
-  const login = (newToken: string) => {
-    localStorage.setItem('token', newToken);
-    setToken(newToken);
+      if (res.ok) {
+        const userData = await res.json();
+        setUser(userData);
+      } else {
+        setUser(null);
+      }
+    } catch (error) {
+      console.error("Auth check failed", error);
+      setUser(null);
+    } finally {
+      // THIS STOPS THE "Checking session" LOOP
+      setIsLoading(false); 
+    }
   };
 
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
   const logout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
+    setUser(null);
+    // You should also call backend /logout here
+    window.location.href = "/sign-in"; // Redirect to login after logout
   };
 
   return (
-    <AuthContext.Provider value={{ token, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, setUser, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -43,8 +55,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  if (context === undefined) throw new Error('useAuth must be used within AuthProvider');
   return context;
 };

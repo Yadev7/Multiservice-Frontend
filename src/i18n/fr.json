@@ -50,7 +50,9 @@
     "title": "Khadamat",
     "about_us": "À propos de nous",
     "contact_us": "Contactez-nous",
-    "reports": "Signalements"
+    "reports": "Signalements",
+    "logout": "Se déconnecter",
+    "profile": "Profil"
   },
 
   "sign_in": {
@@ -138,5 +140,64 @@
       "handyman_description": "Experts polyvalents pour l'assemblage de meubles, le montage et les améliorations générales de la maison.",
       "gardening_description": "Entretien complet de la pelouse, aménagement paysager et maintenance extérieure pour garder votre jardin magnifique."
     }
+  },
+   "members": {
+    "add_member": "Ajouter Un Membre",
+    "pros": "Professionnels"
+    
+  },
+    "contact": {
+    "write_us" : "Ecrivez-nous",
+    "instruction" : "Votre adresse email ne sera pas publiée. Les champs requis sont indiqués par",
+    "name": "Votre Nom*",
+    "email": "Adresse Email *",
+    "object": "Objet *",
+    "message":"Votre Message *",
+    "button": "Envoyer",
+    "placeholder": {
+      "name":"Votre Nom",
+      "email":"Votre Email",
+      "subject": "Sujet de votre message",
+      "message":"Comment pouvons-nous vous aider ?"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "À propos de Khadamat",
+      "subtitle": "La passerelle de confiance reliant les talents locaux aux besoins du quotidien au Maroc."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "p1": "Chez Khadamat, nous croyons que trouver un professionnel qualifié ne devrait pas être un parcours du combattant. Que vous ayez besoin d'un électricien à Fès, d'un développeur ou d'un service de nettoyage, notre plateforme simplifie la mise en relation.",
+      "p2": "Nous digitalisons le secteur des services au Maroc en offrant aux prestataires (Providers) une vitrine professionnelle pour développer leur activité, et aux clients une solution sécurisée et rapide.",
+      "stats": {
+        "services": "Services",
+        "origin": "Origine",
+        "originValue": "Fès"
+      }
+    },
+    "features": {
+      "title": "Pourquoi choisir Khadamat ?",
+      "trust": {
+        "title": "Confiance & Sécurité",
+        "description": "Tous nos prestataires sont vérifiés pour garantir un service de qualité et sécurisé."
+      },
+      "speed": {
+        "title": "Rapidité",
+        "description": "Réservez un service en quelques clics et recevez une réponse instantanée."
+      },
+      "proximity": {
+        "title": "Proximité",
+        "description": "Trouvez les meilleurs experts juste à côté de chez vous, partout au Maroc."
+      }
+    },
+    "cta": {
+      "title": "Prêt à simplifier votre quotidien ?",
+      "findBtn": "Trouver un service",
+      "becomeBtn": "Devenir Prestataire"
+    }
   }
+
+
+
 }

@@ -131,12 +131,6 @@ export default function HeroSection() {
                 </p>
 
                 <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">{t('status')}</span>
-                    <span className="text-green-500 font-bold flex items-center gap-1">
-                      Online
-                    </span>
-                  </div>
                   <div className="px-4 py-2 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg font-bold text-xs">
                     {t('hero.verified_pro')}
                   </div>

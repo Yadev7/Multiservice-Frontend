@@ -51,7 +51,6 @@
     "reports": "Reports",
     "logout": "Logout",
     "profile": "Profile"
-
   },
   "sign_in": {
     "title": "Sign In to Your Account",
@@ -141,18 +140,18 @@
     "pros": "Professionals"
   },
   "contact": {
-    "write_us" : "Write Us",
-    "instruction" : "Your email address will not be published. Required fields are indicated by",
+    "write_us": "Write Us",
+    "instruction": "Your email address will not be published. Required fields are indicated by",
     "name": "Your Name*",
     "email": "Email *",
     "object": "Objet *",
     "message": "Your Message *",
     "button": "Send",
     "placeholder": {
-     "name": "Your Name",
-     "email": "Your Email",
-     "subject": "Subject of your message",
-     "message": "How we can help you ?"
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject of your message",
+      "message": "How we can help you ?"
     }
   },
   "about": {
@@ -162,7 +161,7 @@
     },
     "mission": {
       "title": "Our Mission",
-      "p1": "At Khadamat, we believe that finding a qualified professional shouldn't be an uphill battle. Whether you need an electrician in Fes, a developer, or a cleaning service, our platform simplifies the connection.",
+      "p1": "At Khadamat, we believe that finding a qualified professional shouldn't be an uphill battle. Whether you need an electrician in Fes, a plomber, or a cleaning service, our platform simplifies the connection.",
       "p2": "We are digitalizing the service sector in Morocco by offering providers a professional showcase to grow their business, and customers a secure and fast solution.",
       "stats": {
         "services": "Services",
@@ -189,6 +188,40 @@
       "title": "Ready to simplify your daily life?",
       "findBtn": "Find a Service",
       "becomeBtn": "Become a Provider"
+    }
+  },
+
+  "footer": {
+    "stats": {
+      "customers": "Satisfied Customers",
+      "projects": "Projects Completed"
+    },
+    "brand": {
+      "name": "Khadamat",
+      "description": "Connecting skilled professionals with people who need to get things done. Quality service, guaranteed."
+    },
+    "columns": {
+      "company": "Company",
+      "support": "Support",
+      "getInTouch": "Get in Touch"
+    },
+    "links": {
+      "about": "About Us",
+      "careers": "Careers",
+      "blog": "Our Blog",
+      "press": "Press",
+      "faq": "Help Center",
+      "safety": "Safety",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "contact": {
+      "text": "Questions or feedback? We’d love to hear from you.",
+      "button": "Contact Us"
+    },
+    "bottom": {
+      "rights": "All rights reserved. Made By ",
+      "language": "English (US)"
     }
   }
 }

@@ -1,4 +1,5 @@
 'use client';
+import ScrollToTop from '@/components/ScrollToTop';
 import Hero from '../components/Hero'
 import HowItWorks from '../components/HowItWorks'
 // import BecomeABoss from '../components/BecomeABoss'
@@ -18,6 +19,7 @@ export default function HomePage() {
       {/* <BecomeABoss /> */}
       {/* <Testimonials /> */}
       <Footer />
+      <ScrollToTop />
     </main>
   )
 }

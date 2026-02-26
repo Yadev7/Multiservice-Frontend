@@ -141,24 +141,23 @@
       "gardening_description": "Entretien complet de la pelouse, aménagement paysager et maintenance extérieure pour garder votre jardin magnifique."
     }
   },
-   "members": {
+  "members": {
     "add_member": "Ajouter Un Membre",
     "pros": "Professionnels"
-    
   },
-    "contact": {
-    "write_us" : "Ecrivez-nous",
-    "instruction" : "Votre adresse email ne sera pas publiée. Les champs requis sont indiqués par",
+  "contact": {
+    "write_us": "Ecrivez-nous",
+    "instruction": "Votre adresse email ne sera pas publiée. Les champs requis sont indiqués par",
     "name": "Votre Nom*",
     "email": "Adresse Email *",
     "object": "Objet *",
-    "message":"Votre Message *",
+    "message": "Votre Message *",
     "button": "Envoyer",
     "placeholder": {
-      "name":"Votre Nom",
-      "email":"Votre Email",
+      "name": "Votre Nom",
+      "email": "Votre Email",
       "subject": "Sujet de votre message",
-      "message":"Comment pouvons-nous vous aider ?"
+      "message": "Comment pouvons-nous vous aider ?"
     }
   },
   "about": {
@@ -168,7 +167,7 @@
     },
     "mission": {
       "title": "Notre Mission",
-      "p1": "Chez Khadamat, nous croyons que trouver un professionnel qualifié ne devrait pas être un parcours du combattant. Que vous ayez besoin d'un électricien à Fès, d'un développeur ou d'un service de nettoyage, notre plateforme simplifie la mise en relation.",
+      "p1": "Chez Khadamat, nous croyons que trouver un professionnel qualifié ne devrait pas être un parcours du combattant. Que vous ayez besoin d'un électricien à Fès, d'un plombier ou d'un service de nettoyage, notre plateforme simplifie la mise en relation.",
       "p2": "Nous digitalisons le secteur des services au Maroc en offrant aux prestataires (Providers) une vitrine professionnelle pour développer leur activité, et aux clients une solution sécurisée et rapide.",
       "stats": {
         "services": "Services",
@@ -196,8 +195,39 @@
       "findBtn": "Trouver un service",
       "becomeBtn": "Devenir Prestataire"
     }
+  },
+
+  "footer": {
+    "stats": {
+      "customers": "Clients Satisfaits",
+      "projects": "Projets Terminés"
+    },
+    "brand": {
+      "name": "Khadamat",
+      "description": "Connecter des professionnels qualifiés avec des personnes qui ont besoin de faire avancer leurs projets. Qualité garantie."
+    },
+    "columns": {
+      "company": "Entreprise",
+      "support": "Support",
+      "getInTouch": "Contactez-nous"
+    },
+    "links": {
+      "about": "À propos",
+      "careers": "Carrières",
+      "blog": "Notre Blog",
+      "press": "Presse",
+      "faq": "Centre d'aide",
+      "safety": "Sécurité",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité"
+    },
+    "contact": {
+      "text": "Des questions ou des commentaires ? Nous aimerions avoir de vos nouvelles.",
+      "button": "Contactez-nous"
+    },
+    "bottom": {
+      "rights": "Tous droits réservés. Fait par ",
+      "language": "Français"
+    }
   }
-
-
-
 }
